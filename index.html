@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Portfolio de Wenceslao Maldonado, desarrollador full-stack junior en Lanzarote: Angular, NestJS y bases de datos relacionales. Un viaje espacial donde cada planeta es un proyecto.">
+<meta name="author" content="Wenceslao Andrés Maldonado">
+<meta name="theme-color" content="#05070f">
+<link rel="canonical" href="https://wenmaldo7-design.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 54'%3E%3Cpath fill='%23ff7448' d='M7.5 25 2 38l5.5-2.5zM20.5 25 26 38l-5.5-2.5z'/%3E%3Cpath fill='%23ece8dc' d='M14 2c6 6 7 16 7 27v7H7v-7C7 18 8 8 14 2z'/%3E%3Ccircle cx='14' cy='17' r='3.5' fill='%2305070f' stroke='%23ffb547' stroke-width='1.6'/%3E%3Cpath fill='%23ffb547' d='M9.5 39Q14 54 18.5 39z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wenmaldo7-design.github.io/">
+<meta property="og:title" content="Wenceslao Maldonado · Desarrollador Full-Stack Junior">
+<meta property="og:description" content="Portfolio de Wenceslao Maldonado, desarrollador full-stack junior en Lanzarote: Angular, NestJS y bases de datos relacionales. Un viaje espacial donde cada planeta es un proyecto.">
+<meta property="og:image" content="https://wenmaldo7-design.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Wenceslao Maldonado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a vertical voyage. Launch pad over Lanzarote → pilot's log → four planets on alternating orbits → star chart of skills → final transmission. A fixed telemetry readout tracks distance travelled. Single dark theme by choice: it is space. */
+:root{
+  --void:#05070f;
+  --void-2:#0a0f1f;
+  --ink:#ece8dc;
+  --dim:#98a0b8;
+  --faint:#5d6580;
+  --line:rgba(236,232,220,.13);
+  --signal:#ffb547;
+  --ember:#ff7448;
+  --panel:rgba(10,15,31,.72);
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --step-0:1rem;
+  --step-1:1.15rem;
+  --step-2:clamp(1.5rem,1.1rem + 1.6vw,2.2rem);
+  --step-3:clamp(2rem,1.2rem + 3.4vw,3.6rem);
+  --step-4:clamp(2.4rem,1rem + 8.4vw,6.2rem);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--void);overflow-x:clip}
+body{
+  background:var(--void);color:var(--ink);font-family:var(--f-body);font-size:var(--step-0);line-height:1.6;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(40vw 30vw at 85% 20%,rgba(255,181,71,.07),transparent 70%),
+    radial-gradient(50vw 40vw at 10% 70%,rgba(47,181,168,.06),transparent 70%),
+    radial-gradient(30vw 30vw at 60% 95%,rgba(255,116,72,.05),transparent 70%);}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0;line-height:1.05}
+
+/* ---------- top bar ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:20;
+  padding-top:env(safe-area-inset-top,0px);
+  background:linear-gradient(to bottom,rgba(5,7,15,.92),rgba(5,7,15,.55));
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:.95rem;letter-spacing:.04em}
+.brand-dot{width:12px;height:12px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal);animation:beacon 2.4s ease-in-out infinite}
+@keyframes beacon{50%{box-shadow:0 0 2px var(--signal);opacity:.6}}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:8px 10px;border-radius:6px;transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.lang button{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;background:none;border:0;color:var(--dim);padding:6px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--void)}
+@media (max-width:820px){.nav{display:none}.lang{margin-left:auto}}
+
+/* ---------- telemetry ---------- */
+.telemetry{position:fixed;right:clamp(12px,2vw,24px);bottom:calc(clamp(12px,2vw,24px) + env(safe-area-inset-bottom,0px));z-index:15;
+  width:230px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--dim)}
+.telemetry .row{display:flex;justify-content:space-between;gap:8px}
+.telemetry b{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.telemetry .sector{color:var(--signal);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{height:2px;background:var(--line);margin-top:9px;position:relative;border-radius:2px}
+.track i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--signal);box-shadow:0 0 8px var(--signal)}
+@media (max-width:640px){
+  .telemetry{left:12px;right:12px;width:auto;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;padding:8px 12px}
+  .telemetry .row:first-child{display:none}
+  .telemetry .sector{margin:0}
+  .telemetry .track{grid-column:1/-1;margin-top:6px}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-top:calc(150px + env(safe-area-inset-top,0px));padding-bottom:clamp(120px,16vw,200px);position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.hero .mono{display:flex;flex-wrap:wrap;gap:6px 18px}
+.hero .mono span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--signal);margin-right:8px;vertical-align:middle}
+.hero h1{font-size:var(--step-4);font-weight:800;letter-spacing:-.02em;margin-top:28px;line-height:.95}
+.hero h1 .thin{display:block;font-weight:400;color:var(--dim);font-size:.42em;letter-spacing:.02em;margin-bottom:.35em}
+.role{font-family:var(--f-display);font-weight:400;font-size:var(--step-2);margin-top:20px;color:var(--ink)}
+.role em{font-style:normal;color:var(--signal)}
+.lede{max-width:56ch;color:var(--dim);font-size:var(--step-1);margin-top:18px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  padding:14px 20px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn.primary{background:var(--signal);color:var(--void);border-color:var(--signal);font-weight:500}
+.btn.primary:hover{box-shadow:0 0 30px rgba(255,181,71,.45)}
+.btn .arrow{transition:transform .3s}
+.btn:hover .arrow{transform:translateY(3px)}
+.horizon{position:absolute;left:50%;bottom:-62vw;width:160vw;height:70vw;transform:translateX(-50%);border-radius:50%;z-index:1;
+  background:radial-gradient(ellipse at 50% 0%,#2a1410 0%,#110a0c 40%,var(--void) 70%);
+  box-shadow:0 -2px 0 rgba(255,116,72,.55),0 -18px 60px rgba(255,116,72,.22),0 -60px 160px rgba(255,116,72,.10)}
+.load{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.load:nth-child(2){animation-delay:.12s}.load:nth-child(3){animation-delay:.24s}.load:nth-child(4){animation-delay:.36s}.load:nth-child(5){animation-delay:.48s}
+@keyframes rise{from{transform:translateY(18px);opacity:.35}to{transform:none;opacity:1}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(80px,12vw,150px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(36px,6vw,64px);max-width:720px}
+.sec-head h2{font-size:var(--step-3)}
+.sec-head p{color:var(--dim);margin:0;font-size:var(--step-1)}
+
+/* log */
+.log{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.log-text p{margin:0 0 1.1em;max-width:62ch;font-size:1.06rem}
+.log-text p:first-child::first-letter{font-family:var(--f-display);font-weight:800;color:var(--signal)}
+.dossier{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:8px 22px;margin:0}
+.dossier div{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.dossier div:last-child{border-bottom:0}
+.dossier dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding-top:3px}
+.dossier dd{margin:0;min-width:0}
+@media (max-width:820px){.log{grid-template-columns:1fr}}
+
+/* planets */
+.planet-sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,6vw,90px);align-items:center;padding-block:clamp(60px,9vw,120px)}
+.planet-sec:nth-of-type(even) .orbit{order:2}
+@media (max-width:820px){.planet-sec{grid-template-columns:1fr}.planet-sec:nth-of-type(even) .orbit{order:0}}
+.orbit{position:relative;display:grid;place-items:center;aspect-ratio:1;width:100%;max-width:440px;margin-inline:auto;
+  transform:translateY(calc(var(--d,0) * -50px)) scale(calc(1 - var(--ad,0) * .12));will-change:transform}
+.orbit-path{position:absolute;inset:0;border:1px solid var(--line);border-radius:50%;animation:turn var(--moon-t,22s) linear infinite}
+.orbit-path::after{content:"";position:absolute;top:50%;left:-4px;width:8px;height:8px;border-radius:50%;background:var(--ink);box-shadow:0 0 10px var(--ink)}
+@keyframes turn{to{transform:rotate(360deg)}}
+.planet{position:relative;width:64%;aspect-ratio:1;max-width:100%;border-radius:50%;overflow:hidden;z-index:2;
+  background:radial-gradient(circle at 34% 30%,var(--p1),var(--p2) 46%,var(--p3) 78%);
+  box-shadow:0 0 70px var(--glow),0 0 140px var(--glow);
+  transform:rotate(calc(var(--d,0) * -14deg))}
+.surface{position:absolute;inset:0;background-size:200% 100%;animation:spin var(--spin,50s) linear infinite;opacity:.55;mix-blend-mode:overlay}
+@keyframes spin{to{background-position:-200% 0}}
+.planet::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.18),transparent 30%),radial-gradient(circle at 34% 32%,transparent 46%,rgba(3,4,10,.78) 80%)}
+.ring{position:absolute;top:50%;left:50%;width:94%;aspect-ratio:1;border-radius:50%;border:12px solid var(--ring);transform:translate(-50%,-50%) rotate(-16deg) scaleY(.26);z-index:1;opacity:.75}
+.ring.front{z-index:3;clip-path:inset(50% 0 0 0)}
+/* Planet palettes */
+.p-puente{--p1:#8fe3d6;--p2:#2a9d93;--p3:#0b3438;--glow:rgba(47,181,168,.22)}
+.p-puente .surface{background-image:
+  radial-gradient(18% 12% at 20% 30%,#e9f6d8 60%,transparent 62%),
+  radial-gradient(14% 20% at 60% 60%,#d9efc4 60%,transparent 62%),
+  radial-gradient(10% 8% at 85% 25%,#e9f6d8 60%,transparent 62%),
+  radial-gradient(22% 10% at 40% 82%,#cfe8b8 60%,transparent 62%)}
+.p-fifa{--p1:#ffe2a3;--p2:#d9972f;--p3:#4a2a0c;--glow:rgba(255,181,71,.2);--ring:rgba(255,226,163,.55);--spin:30s}
+.p-fifa .surface{opacity:.5;background-image:repeating-linear-gradient(176deg,#fff3d1 0 6%,#b9771f 6% 11%,#ffd98a 11% 17%,#8a4f12 17% 20%)}
+.p-tijera{--p1:#ffc2b4;--p2:#e0604a;--p3:#3a0f16;--glow:rgba(255,116,72,.2);--spin:70s}
+.p-tijera .surface{opacity:.6;background-image:
+  radial-gradient(7% 7% at 22% 40%,#7a2230 50%,transparent 56%),
+  radial-gradient(5% 5% at 66% 28%,#7a2230 50%,transparent 56%),
+  radial-gradient(9% 9% at 52% 70%,#8c2a33 50%,transparent 56%),
+  radial-gradient(4% 4% at 82% 62%,#7a2230 50%,transparent 56%),
+  radial-gradient(6% 6% at 12% 76%,#8c2a33 50%,transparent 56%)}
+.p-wild{--p1:#a8e07a;--p2:#3f8a3a;--p3:#0a2412;--glow:rgba(120,200,90,.16);--spin:90s;filter:saturate(.9)}
+.p-wild .surface{opacity:.7;background-image:
+  radial-gradient(30% 10% at 25% 30%,rgba(255,255,255,.75),transparent 70%),
+  radial-gradient(26% 8% at 70% 55%,rgba(255,255,255,.6),transparent 70%),
+  radial-gradient(20% 7% at 40% 80%,rgba(255,255,255,.55),transparent 70%)}
+.orbit.uncharted .orbit-path{border-style:dashed;border-color:rgba(168,224,122,.35)}
+.orbit.uncharted .orbit-path::after{background:#a8e07a;box-shadow:0 0 10px #a8e07a}
+.planet-gl{position:absolute;inset:0;width:100%;height:100%;z-index:2;transform:rotate(calc(var(--d,0) * -10deg))}
+.scan{position:absolute;inset:20%;border-radius:50%;z-index:4;pointer-events:none;
+  background:conic-gradient(from 0deg,rgba(168,224,122,.0) 0deg,rgba(168,224,122,.32) 30deg,transparent 31deg);animation:turn 4s linear infinite;mix-blend-mode:screen}
+
+.card{min-width:0}
+.card .mono{display:flex;flex-wrap:wrap;gap:4px 14px}
+.card .mono .num{color:var(--ink)}
+.card h3{font-size:var(--step-3);margin:14px 0 16px}
+.card .desc{color:var(--dim);font-size:var(--step-1);max-width:56ch;margin:0}
+.mission{margin-top:26px}
+.mission h4,.atmo h4{font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.mission ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mission li{position:relative;padding-left:22px;max-width:60ch}
+.mission li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border:1px solid var(--accent,var(--signal));transform:rotate(45deg)}
+.atmo{margin-top:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{font-family:var(--f-mono);font-size:.76rem;padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.card .btn{margin-top:28px}
+.pc-puente{--accent:#5fd1c3}.pc-fifa{--accent:#ffcf7a}.pc-tijera{--accent:#ff8a70}.pc-wild{--accent:#a8e07a}
+.card .mono .tag{color:var(--accent)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  color:#a8e07a;border:1px dashed rgba(168,224,122,.45);padding:7px 12px;border-radius:999px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:#a8e07a;animation:beacon 1.4s ease-in-out infinite}
+.divider{border:0;border-top:1px dashed var(--line);margin:0}
+
+/* constellation */
+.stars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(24px,4vw,44px)}
+.const h3{font-family:var(--f-mono);font-weight:500;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:16px;line-height:1.4}
+.const ul{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid var(--line);display:grid;gap:12px}
+.const li{position:relative}
+.const li::before{content:"";position:absolute;left:-18px;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--ink);box-shadow:0 0 6px rgba(236,232,220,.8);animation:twinkle 3s ease-in-out infinite;animation-delay:calc(var(--i,0) * .4s)}
+@keyframes twinkle{50%{opacity:.35;box-shadow:none}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,6vw,80px);align-items:start}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.channels{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.channels li{display:grid;grid-template-columns:minmax(0,7em) minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.channels .k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.channels .v{min-width:0;overflow-wrap:anywhere;font-size:1.05rem}
+.channels a.v{text-decoration:none}
+.channels a.v:hover{color:var(--signal)}
+.mini{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--dim);padding:7px 11px;border-radius:999px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.mini:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:480px){.channels li{grid-template-columns:1fr auto}.channels .k{grid-column:1/-1}}
+.btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.mini.solid{background:var(--signal);border-color:var(--signal);color:var(--void)}
+.mini.solid:hover{color:var(--void);box-shadow:0 0 18px rgba(255,181,71,.4)}
+#cv-dialog{width:min(860px,calc(100vw - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line);border-radius:14px;background:var(--void-2);color:var(--ink);overflow:hidden}
+#cv-dialog[open]{display:flex;flex-direction:column}
+#cv-dialog::backdrop{background:rgba(3,4,10,.78);backdrop-filter:blur(4px)}
+.dlg-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlg-body{overflow:auto;padding:16px;background:#2a2f3d}
+.dlg-body img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+/* rocket scroll rail */
+.r-body{fill:var(--ink)}.r-fin{fill:var(--ember)}.r-stripe{fill:var(--ember);opacity:.85}
+.r-window{fill:var(--void-2);stroke:var(--signal);stroke-width:1.6}.r-nozzle{fill:var(--faint)}
+.fl-out{fill:var(--signal)}.fl-in{fill:var(--ink)}
+.flame-g{transform-box:view-box;transform-origin:14px 39px;transform:scaleY(var(--thrust,.45));transition:transform .25s ease-out}
+.flame-flicker{transform-box:view-box;transform-origin:14px 39px;animation:flicker .12s ease-in-out infinite alternate}
+@keyframes flicker{from{transform:scale(.88,.9)}to{transform:scale(1.06,1.12)}}
+.rocket-rail{display:none;position:fixed;top:calc(78px + env(safe-area-inset-top,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));right:10px;width:28px;z-index:16;cursor:pointer}
+.rail-line{position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed var(--line)}
+.rail-trail{position:absolute;left:50%;top:0;width:2px;margin-left:-1px;height:0;border-radius:2px;
+  background:linear-gradient(to bottom,rgba(255,181,71,0),rgba(255,181,71,.75));box-shadow:0 0 8px rgba(255,181,71,.45)}
+.rocket{position:absolute;left:0;top:0;width:28px;height:54px;cursor:grab;transform:translateY(var(--y,0px));touch-action:none;filter:drop-shadow(0 0 6px rgba(255,181,71,.35))}
+.rocket:active{cursor:grabbing}
+.rocket svg{display:block;width:100%;height:100%;transform:rotate(180deg);transition:transform .45s cubic-bezier(.3,1.4,.5,1)}
+.rocket.up svg{transform:none}
+@media (pointer:fine) and (min-width:821px){
+  html{scrollbar-width:none}
+  html::-webkit-scrollbar{display:none}
+  .rocket-rail{display:block}
+  .telemetry{right:52px}
+}
+.mini-rocket{position:absolute;top:50%;left:0;width:10px;height:19px;margin-left:-5px;transform:translateY(-50%) rotate(90deg)}
+.mini-rocket svg{display:block;width:100%;height:100%}
+.track{overflow:visible}
+footer{padding-block:40px calc(110px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .orbit,.planet{transform:none!important}
+}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><span class="brand-dot" aria-hidden="true"></span>WEN.M</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#bitacora" data-i18n="nav.log">Bitácora</a>
+      <a href="#planetas" data-i18n="nav.planets">Planetas</a>
+      <a href="#mapa" data-i18n="nav.map">Mapa estelar</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="rocket-rail" id="rail" aria-hidden="true">
+  <div class="rail-line"></div>
+  <div class="rail-trail" id="trail"></div>
+  <div class="rocket" id="rocket">
+    <svg viewBox="0 0 28 54" aria-hidden="true">
+      <g class="flame-g"><g class="flame-flicker">
+        <path class="fl-out" d="M9.5 39 Q14 54 18.5 39 Z"/>
+        <path class="fl-in" d="M11.5 39 Q14 48 16.5 39 Z"/>
+      </g></g>
+      <path class="r-fin" d="M7.5 25 L2 38 L7.5 35.5 Z"/>
+      <path class="r-fin" d="M20.5 25 L26 38 L20.5 35.5 Z"/>
+      <path class="r-body" d="M14 2 C20 8 21 18 21 29 L21 36 L7 36 L7 29 C7 18 8 8 14 2 Z"/>
+      <rect class="r-stripe" x="7" y="29" width="14" height="2.2"/>
+      <circle class="r-window" cx="14" cy="17" r="3.5"/>
+      <rect class="r-nozzle" x="10" y="36" width="8" height="3" rx="1"/>
+    </svg>
+  </div>
+</div>
+
+<aside class="telemetry" aria-hidden="true">
+  <div class="row"><span data-i18n="tel.mission">MISIÓN</span><b>WM-01</b></div>
+  <div class="row"><span data-i18n="tel.dist">DISTANCIA</span><b><span id="dist">0.00</span> <span data-i18n="tel.unit">UA</span></b></div>
+  <div class="sector" id="sector">Base de lanzamiento</div>
+  <div class="track"><i id="bar"></i><span class="mini-rocket" id="mini-rocket"><svg class="mini" viewBox="0 0 28 54" aria-hidden="true">
+      <g class="flame-g"><g class="flame-flicker">
+        <path class="fl-out" d="M9.5 39 Q14 54 18.5 39 Z"/>
+        <path class="fl-in" d="M11.5 39 Q14 48 16.5 39 Z"/>
+      </g></g>
+      <path class="r-fin" d="M7.5 25 L2 38 L7.5 35.5 Z"/>
+      <path class="r-fin" d="M20.5 25 L26 38 L20.5 35.5 Z"/>
+      <path class="r-body" d="M14 2 C20 8 21 18 21 29 L21 36 L7 36 L7 29 C7 18 8 8 14 2 Z"/>
+      <rect class="r-stripe" x="7" y="29" width="14" height="2.2"/>
+      <circle class="r-window" cx="14" cy="17" r="3.5"/>
+      <rect class="r-nozzle" x="10" y="36" width="8" height="3" rx="1"/>
+    </svg></span></div>
+</aside>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio" data-sector="inicio">
+    <div class="wrap">
+      <p class="mono load"><span data-i18n="hero.mission">Misión WM-01</span><span data-i18n="hero.base">Base: Lanzarote, Islas Canarias</span><span data-i18n="hero.coords">29°02′N 13°38′O</span></p>
+      <h1 class="load"><span class="thin" data-i18n="hero.pilot">Piloto al mando</span>Wenceslao Maldonado</h1>
+      <p class="role load" data-i18n="hero.role">Desarrollador <em>full-stack</em> junior</p>
+      <p class="lede load" data-i18n="hero.lede">Construyo aplicaciones completas, del frontend en Angular al backend en NestJS. Este portfolio es un viaje: cada planeta es un proyecto. Desplázate para despegar.</p>
+      <div class="actions load">
+        <a class="btn primary" href="#bitacora"><span data-i18n="hero.go">Iniciar el viaje</span><span class="arrow" aria-hidden="true">↓</span></a>
+        <a class="btn" href="#contacto" data-i18n="hero.contact">Abrir canal de contacto</a>
+      </div>
+    </div>
+    <div class="horizon" aria-hidden="true"></div>
+  </section>
+
+  <!-- LOG -->
+  <section id="bitacora" data-sector="bitacora">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono" data-i18n="log.eyebrow">Entrada 001 · Sobre mí</p>
+        <h2 data-i18n="log.title">Bitácora del piloto</h2>
+      </div>
+      <div class="log">
+        <div class="log-text">
+          <p data-i18n="log.p1">Soy Wenceslao, aunque todos me dicen Wen, y soy desarrollador full-stack junior. Me formé en el bootcamp de XAcademy y desde entonces construyo aplicaciones completas: interfaces en Angular, APIs en NestJS y bases de datos relacionales bien modeladas.</p>
+          <p data-i18n="log.p2">Antes de programar trabajé de cara al público, en caja y gestionando legajos en un registro automotor. De esa etapa me quedó algo que aplico al código: los detalles importan, y quien usa una aplicación no tiene por qué entender cómo funciona por dentro.</p>
+          <p data-i18n="log.p3">Trabajo con inteligencia artificial como herramienta, no como piloto automático: defino lo que hay que construir, reviso cada cambio y tomo las decisiones de arquitectura.</p>
+        </div>
+        <dl class="dossier">
+          <div><dt data-i18n="log.k1">Formación</dt><dd data-i18n="log.v1">Bachiller en Ciencias Económicas</dd></div>
+          <div><dt data-i18n="log.k2">Bootcamp</dt><dd>XAcademy</dd></div>
+          <div><dt data-i18n="log.k3">Idiomas</dt><dd data-i18n="log.v3">Español nativo · Inglés B2 (Cambridge)</dd></div>
+          <div><dt data-i18n="log.k4">Base</dt><dd data-i18n="log.v4">Lanzarote, Islas Canarias</dd></div>
+          <div><dt data-i18n="log.k5">Disponibilidad</dt><dd data-i18n="log.v5">Jornada completa · Carnet de conducir</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANETS -->
+  <section id="planetas" data-sector="sistema" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono" data-i18n="pl.eyebrow">Entrada 002 · Proyectos</p>
+        <h2 data-i18n="pl.title">Sistema de proyectos</h2>
+        <p data-i18n="pl.lede">Tres planetas cartografiados y uno en plena exploración.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <article class="planet-sec pc-puente" data-sector="puente">
+      <div class="orbit" style="--moon-t:26s" aria-hidden="true">
+        <div class="orbit-path"></div>
+        <div class="planet p-puente"><div class="surface"></div></div>
+      </div>
+      <div class="card">
+        <p class="mono"><span class="num" data-i18n="p1.num">Planeta 01</span><span class="tag" data-i18n="p1.class">Clase: inserción laboral · en equipo</span></p>
+        <h3 data-i18n="p1.name">Puente Laboral</h3>
+        <p class="desc" data-i18n="p1.desc">Plataforma de inserción laboral que conecta a personas con dificultades para acceder al empleo con oportunidades, formación y mentores. Proyecto en equipo, con frontend en Angular y backend en NestJS.</p>
+        <div class="mission">
+          <h4 data-i18n="m.part">Mi parte de la misión</h4>
+          <ul>
+            <li data-i18n="p1.l1">Desarrollé el módulo de mentorías en el backend.</li>
+            <li data-i18n="p1.l2">Implementé las notificaciones dentro de la plataforma.</li>
+            <li data-i18n="p1.l3">Integré mi trabajo con el del equipo mediante ramas y pull requests.</li>
+            <li data-i18n="p1.l4">Organización de tareas en Trello y diseño de interfaces en Figma, junto con la base de datos en Supabase.</li>
+          </ul>
+        </div>
+        <div class="atmo">
+          <h4 data-i18n="m.atmo">Atmósfera</h4>
+          <ul class="chips"><li>Angular</li><li>NestJS</li><li>Prisma</li><li>PostgreSQL</li><li>Supabase</li><li>TypeScript</li><li>Trello</li><li>Figma</li></ul>
+        </div>
+        <a class="btn" data-repo="puente" href="#" target="_blank" rel="noopener"><span data-i18n="m.code">Ver código en GitHub</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <hr class="divider">
+
+    <article class="planet-sec pc-fifa" data-sector="fifa">
+      <div class="orbit" style="--moon-t:18s" aria-hidden="true">
+        <div class="orbit-path"></div>
+        <div class="ring"></div>
+        <div class="planet p-fifa"><div class="surface"></div></div>
+        <div class="ring front"></div>
+      </div>
+      <div class="card">
+        <p class="mono"><span class="num" data-i18n="p2.num">Planeta 02</span><span class="tag" data-i18n="p2.class">Clase: aplicación full-stack</span></p>
+        <h3>FIFA Players App</h3>
+        <p class="desc" data-i18n="p2.desc">Aplicación para explorar y gestionar jugadores y jugadoras de FIFA. Desafío técnico del bootcamp de XAcademy.</p>
+        <div class="mission">
+          <h4 data-i18n="m.did">Lo que construí</h4>
+          <ul>
+            <li data-i18n="p2.l1">Autenticación con JWT y límite de intentos (rate limiting).</li>
+            <li data-i18n="p2.l2">Importación y exportación en CSV con detección de duplicados.</li>
+            <li data-i18n="p2.l3">Estadísticas con gráficos de radar y de evolución.</li>
+            <li data-i18n="p2.l4">Análisis narrativo de cada jugador generado con IA.</li>
+            <li data-i18n="p2.l5">Todo el entorno funcionando en contenedores Docker.</li>
+          </ul>
+        </div>
+        <div class="atmo">
+          <h4 data-i18n="m.atmo">Atmósfera</h4>
+          <ul class="chips"><li>Angular 21</li><li>NestJS</li><li>Sequelize</li><li>MySQL</li><li>Docker</li><li>Chart.js</li><li>LangChain</li><li>Groq</li></ul>
+        </div>
+        <a class="btn" data-repo="fifa" href="#" target="_blank" rel="noopener"><span data-i18n="m.code">Ver código en GitHub</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <hr class="divider">
+
+    <article class="planet-sec pc-tijera" data-sector="tijera">
+      <div class="orbit" style="--moon-t:32s" aria-hidden="true">
+        <div class="orbit-path"></div>
+        <div class="planet p-tijera"><div class="surface"></div></div>
+      </div>
+      <div class="card">
+        <p class="mono"><span class="num" data-i18n="p3.num">Planeta 03</span><span class="tag" data-i18n="p3.class">Clase: sistema de reservas</span></p>
+        <h3>Tijerapp</h3>
+        <p class="desc" data-i18n="p3.desc">Sistema de reservas para peluquerías y barberías, con tres roles: clientes, personal y administración.</p>
+        <div class="mission">
+          <h4 data-i18n="m.did">Lo que construí</h4>
+          <ul>
+            <li data-i18n="p3.l1">Evité las reservas duplicadas con bloqueo pesimista en la base de datos (SELECT … FOR UPDATE).</li>
+            <li data-i18n="p3.l2">Revocación inmediata de sesiones: el estado del usuario se comprueba en cada petición, sin esperar a que caduque el JWT.</li>
+            <li data-i18n="p3.l3">Migraciones de base de datos versionadas.</li>
+            <li data-i18n="p3.l4">Pruebas de extremo a extremo con Playwright.</li>
+            <li data-i18n="p3.l5">Despliegue con Docker y nginx.</li>
+          </ul>
+        </div>
+        <div class="atmo">
+          <h4 data-i18n="m.atmo">Atmósfera</h4>
+          <ul class="chips"><li>Angular</li><li>NestJS</li><li>TypeORM</li><li>MySQL</li><li>Playwright</li><li>Docker</li><li>nginx</li></ul>
+        </div>
+        <a class="btn" data-repo="tijera" href="#" target="_blank" rel="noopener"><span data-i18n="m.code">Ver código en GitHub</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <hr class="divider">
+
+    <article class="planet-sec pc-wild" data-sector="wild">
+      <div class="orbit uncharted" style="--moon-t:40s" aria-hidden="true">
+        <div class="orbit-path"></div>
+        <div class="planet p-wild"><div class="surface"></div></div>
+        <div class="scan"></div>
+      </div>
+      <div class="card">
+        <p class="mono"><span class="num" data-i18n="p4.num">Señal detectada</span><span class="tag" data-i18n="p4.class">Clase: videojuego · sin cartografiar</span></p>
+        <h3>Little Wild</h3>
+        <p class="desc" data-i18n="p4.desc">Mi proyecto personal de videojuego: supervivencia en tercera persona donde controlas a un pequeño anolis en una selva inspirada en Madagascar. La escala es la mecánica central: todo es enorme y casi todo te puede comer.</p>
+        <span class="status" data-i18n="p4.status">En desarrollo</span>
+        <div class="mission">
+          <h4 data-i18n="p4.h">Lo que estoy explorando</h4>
+          <ul>
+            <li data-i18n="p4.l1">Lógica de juego con Blueprints: ciclo de día y noche, hambre, sed y depredadores que patrullan.</li>
+            <li data-i18n="p4.l2">Modelado y animación del anolis en Blender, con versión macho y hembra.</li>
+            <li data-i18n="p4.l3">Diseño de sonido propio, generado de forma sintética.</li>
+            <li data-i18n="p4.l4">Un flujo de trabajo con IA: Claude Code conectado a Unreal y a Blender mediante MCP.</li>
+          </ul>
+        </div>
+        <div class="atmo">
+          <h4 data-i18n="p4.tools">Herramientas</h4>
+          <ul class="chips"><li>Unreal Engine 5</li><li>Blueprints</li><li>Blender</li><li>Claude Code + MCP</li><li>Git LFS</li></ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- STAR MAP -->
+  <section id="mapa" data-sector="mapa">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="mono" data-i18n="map.eyebrow">Entrada 003 · Tecnologías</p>
+        <h2 data-i18n="map.title">Mapa estelar</h2>
+        <p data-i18n="map.lede">Las constelaciones con las que me oriento.</p>
+      </div>
+      <div class="stars-grid">
+        <div class="const"><h3>Frontend</h3><ul><li style="--i:0">Angular</li><li style="--i:1">TypeScript</li><li style="--i:2">HTML y CSS</li><li style="--i:3">Chart.js</li></ul></div>
+        <div class="const"><h3>Backend</h3><ul><li style="--i:1">NestJS</li><li style="--i:2">Node.js</li><li style="--i:3">Prisma · TypeORM · Sequelize</li><li style="--i:4">JWT</li></ul></div>
+        <div class="const"><h3 data-i18n="map.data">Datos</h3><ul><li style="--i:2">PostgreSQL</li><li style="--i:3">MySQL</li><li style="--i:4">Supabase</li></ul></div>
+        <div class="const"><h3 data-i18n="map.ops">Calidad y despliegue</h3><ul><li style="--i:0">Playwright</li><li style="--i:1">Docker</li><li style="--i:2">nginx</li></ul></div>
+        <div class="const"><h3 data-i18n="map.team">Equipo y diseño</h3><ul><li style="--i:0" data-i18n="map.git">Git y GitHub</li><li style="--i:1">Trello</li><li style="--i:2">Figma</li></ul></div>
+        <div class="const"><h3 data-i18n="map.ai">IA aplicada</h3><ul><li style="--i:1">LangChain</li><li style="--i:2">Groq</li><li style="--i:3">Claude Code</li><li style="--i:4">MCP</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" data-sector="contacto">
+    <div class="wrap contact">
+      <div class="sec-head" style="margin:0">
+        <p class="mono" data-i18n="c.eyebrow">Entrada 004 · Contacto</p>
+        <h2 data-i18n="c.title">Abrir canal de comunicación</h2>
+        <p data-i18n="c.lede">Estoy buscando un puesto como desarrollador web. Si tienes una vacante o un proyecto, escríbeme.</p>
+      </div>
+      <ul class="channels">
+        <li id="ch-email"><span class="k">Email</span><a class="v" id="email-link" href="#"><span id="email-text"></span></a><button type="button" class="mini" id="copy-email" data-i18n="c.copy">Copiar</button></li>
+        <li id="ch-github"><span class="k">GitHub</span><a class="v" id="gh-link" href="#" target="_blank" rel="noopener"></a><a class="mini" id="gh-btn" href="#" target="_blank" rel="noopener" data-i18n="c.open">Abrir ↗</a></li>
+        <li id="ch-linkedin"><span class="k">LinkedIn</span><a class="v" id="li-link" href="#" target="_blank" rel="noopener"></a><a class="mini" id="li-btn" href="#" target="_blank" rel="noopener" data-i18n="c.open">Abrir ↗</a></li>
+        <li id="ch-cv"><span class="k">CV</span><span class="v" data-i18n="c.cv">Currículum en PDF</span><span class="btns"><button type="button" class="mini" id="cv-view" data-i18n="c.view">Ver</button><button type="button" class="mini solid" id="cv-dl" data-i18n="c.dl">Descargar</button></span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<dialog id="cv-dialog" aria-labelledby="cv-title">
+  <div class="dlg-bar">
+    <span class="mono" id="cv-title" data-i18n="c.dlgtitle">CV · Wenceslao Maldonado</span>
+    <span class="btns"><button type="button" class="mini solid" id="cv-dl2" data-i18n="c.dl">Descargar</button><button type="button" class="mini" id="cv-close" data-i18n="c.close">Cerrar</button></span>
+  </div>
+  <div class="dlg-body"><img id="cv-img" alt="Currículum de Wenceslao Maldonado" width="1406" height="1988"></div>
+</dialog>
+
+<footer>
+  <div class="wrap mono">
+    <span data-i18n="f.end">Fin de la transmisión</span>
+    <span>© 2026 Wenceslao Maldonado</span>
+  </div>
+</footer>
+
+<script>
+/* ===== Datos de contacto: edita aquí ===== */
+const CONTACT = {
+  email: "wenmaldo7@gmail.com",
+  github: "https://github.com/wenmaldo7-design",
+  linkedin: "https://www.linkedin.com/in/wenceslao-maldonado",
+  cv: "CV_Wenceslao_Maldonado.pdf", // PDF publicado junto a la página
+  cvPreview: "cv-preview.png",       // imagen del CV para verlo sin salir de la página
+  repos: { puente: "https://github.com/wenmaldo7-design/puente-laboral", fifa: "https://github.com/wenmaldo7-design/Fifa-app", tijera: "https://github.com/wenmaldo7-design/Tijerapp" } // vacío = enlaza a tu perfil de GitHub
+};
+
+const EN = {
+  "nav.log":"Log","nav.planets":"Planets","nav.map":"Star map","nav.contact":"Contact",
+  "tel.mission":"MISSION","tel.dist":"DISTANCE","tel.unit":"AU",
+  "hero.mission":"Mission WM-01","hero.base":"Base: Lanzarote, Canary Islands","hero.pilot":"Pilot in command","hero.coords":"29°02′N 13°38′W",
+  "hero.role":"Junior <em>full-stack</em> developer",
+  "hero.lede":"I build complete applications, from Angular frontends to NestJS backends. This portfolio is a voyage: every planet is a project. Scroll to lift off.",
+  "hero.go":"Start the voyage","hero.contact":"Open a contact channel",
+  "log.eyebrow":"Entry 001 · About me","log.title":"Pilot's log",
+  "log.p1":"I'm Wenceslao (Wen for short), a junior full-stack developer. I trained at the XAcademy bootcamp and since then I've been building complete applications: Angular interfaces, NestJS APIs and well-modelled relational databases.",
+  "log.p2":"Before coding I worked with the public, as a cashier and handling case files at a vehicle registry office. That job taught me something I bring to code: details matter, and people using an app shouldn't need to understand how it works inside.",
+  "log.p3":"I use AI as a tool, not an autopilot: I define what needs to be built, review every change and make the architecture decisions.",
+  "log.k1":"Education","log.v1":"High school diploma in Economics","log.k2":"Bootcamp","log.k3":"Languages","log.v3":"Native Spanish · English B2 (Cambridge)",
+  "log.k4":"Base","log.v4":"Lanzarote, Canary Islands","log.k5":"Availability","log.v5":"Full time · Driving licence",
+  "pl.eyebrow":"Entry 002 · Projects","pl.title":"Project system","pl.lede":"Three charted planets and one still being explored.",
+  "m.part":"My part of the mission","m.did":"What I built","m.atmo":"Atmosphere","m.code":"View code on GitHub","m.profile":"View my GitHub",
+  "p1.num":"Planet 01","p1.class":"Class: job-placement platform · team project",
+  "p1.desc":"A job-placement platform for people facing barriers to employment, connecting them with job opportunities, training and mentors. Built as a team with an Angular frontend and a NestJS backend.",
+  "p1.l1":"Built the mentorship module on the backend.","p1.l2":"Implemented in-app notifications.","p1.l3":"Merged my work with the team's through branches and pull requests.","p1.l4":"Task planning in Trello, interface design in Figma and the database on Supabase.",
+  "p2.num":"Planet 02","p2.class":"Class: full-stack app",
+  "p2.desc":"An app to explore and manage FIFA men's and women's players. Technical challenge for the XAcademy bootcamp.",
+  "p2.l1":"JWT authentication with rate limiting.","p2.l2":"CSV import and export with duplicate detection.","p2.l3":"Statistics with radar and progression charts.",
+  "p2.l4":"AI-generated narrative analysis for each player.","p2.l5":"The whole environment running in Docker containers.",
+  "p3.num":"Planet 03","p3.class":"Class: booking system",
+  "p3.desc":"A booking system for hair salons and barbershops, with three roles: clients, staff and admins.",
+  "p3.l1":"Prevented double bookings with pessimistic locking in the database (SELECT … FOR UPDATE).",
+  "p3.l2":"Instant session revocation: the user's status is checked on every request instead of waiting for the JWT to expire.",
+  "p3.l3":"Versioned database migrations.","p3.l4":"End-to-end tests with Playwright.","p3.l5":"Deployment with Docker and nginx.",
+  "p4.num":"Signal detected","p4.class":"Class: video game · uncharted",
+  "p4.desc":"My personal game project: a third-person survival game where you play a tiny anole lizard in a jungle inspired by Madagascar. Scale is the core mechanic: everything is huge and almost everything can eat you.",
+  "p4.status":"In development","p4.h":"What I'm exploring",
+  "p4.l1":"Gameplay logic with Blueprints: day and night cycle, hunger, thirst and patrolling predators.",
+  "p4.l2":"Modelling and animating the anole in Blender, with male and female versions.",
+  "p4.l3":"Original sound design, generated synthetically.",
+  "p4.l4":"An AI-assisted workflow: Claude Code connected to Unreal and Blender through MCP.",
+  "p4.tools":"Tools",
+  "map.eyebrow":"Entry 003 · Technologies","map.title":"Star map","map.lede":"The constellations I navigate by.",
+  "map.data":"Data","map.ops":"Quality and deployment","map.ai":"Applied AI","map.team":"Team and design","map.git":"Git and GitHub",
+  "c.eyebrow":"Entry 004 · Contact","c.title":"Open a communication channel",
+  "c.lede":"I'm looking for a web developer role. If you have an opening or a project, get in touch.",
+  "c.copy":"Copy","c.copied":"Copied","c.open":"Open ↗","c.cv":"Résumé (PDF, in Spanish)","c.view":"View","c.dl":"Download","c.close":"Close","c.dlgtitle":"CV · Wenceslao Maldonado","c.saved":"Downloaded","c.dlfail":"Couldn't download","c.declined":"Cancelled",
+  "f.end":"End of transmission"
+};
+const SECTORS = {
+  es:{inicio:"Base de lanzamiento",bitacora:"Bitácora del piloto",sistema:"Sistema de proyectos",puente:"Planeta Puente Laboral",fifa:"Planeta FIFA Players",tijera:"Planeta Tijerapp",wild:"Señal: Little Wild",mapa:"Mapa estelar",contacto:"Canal de contacto"},
+  en:{inicio:"Launch base",bitacora:"Pilot's log",sistema:"Project system",puente:"Planet Puente Laboral",fifa:"Planet FIFA Players",tijera:"Planet Tijerapp",wild:"Signal: Little Wild",mapa:"Star map",contacto:"Contact channel"}
+};
+const ES = {"c.copied":"Copiado","m.profile":"Ver mi GitHub","c.saved":"Descargado","c.dlfail":"No se pudo descargar","c.declined":"Cancelado"};
+document.querySelectorAll("[data-i18n]").forEach(el=>{ if(!(el.dataset.i18n in ES)) ES[el.dataset.i18n]=el.innerHTML; });
+const DICT = {es:ES,en:EN};
+let lang = "es";
+
+/* ----- contact wiring ----- */
+const $ = id => document.getElementById(id);
+function wire(){
+  if(CONTACT.email){ $("email-text").textContent=CONTACT.email; $("email-link").href="mailto:"+CONTACT.email; } else $("ch-email").hidden=true;
+  const tidy = u => u.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
+  if(CONTACT.github){ $("gh-link").href=$("gh-btn").href=CONTACT.github; $("gh-link").textContent=tidy(CONTACT.github); } else $("ch-github").hidden=true;
+  if(CONTACT.linkedin){ $("li-link").href=$("li-btn").href=CONTACT.linkedin; $("li-link").textContent=tidy(CONTACT.linkedin); } else $("ch-linkedin").hidden=true;
+  if(!CONTACT.cv) $("ch-cv").hidden=true;
+  document.querySelectorAll("[data-repo]").forEach(a=>{
+    const url = CONTACT.repos[a.dataset.repo];
+    if(url){ a.href=url; }
+    else if(CONTACT.github){ a.href=CONTACT.github; a.querySelector("[data-i18n]").dataset.i18n="m.profile"; }
+    else a.hidden=true;
+  });
+}
+wire();
+
+$("copy-email").addEventListener("click", e=>{
+  const btn=e.currentTarget;
+  const done=()=>{ btn.textContent=DICT[lang]["c.copied"]; setTimeout(()=>btn.innerHTML=DICT[lang]["c.copy"],1800); };
+  const fallback=()=>{ const r=document.createRange(); r.selectNodeContents($("email-text")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try{ navigator.clipboard.writeText(CONTACT.email).then(done,fallback); }catch(_){ fallback(); }
+});
+
+/* ----- CV: view in page + download ----- */
+const dlg=$("cv-dialog");
+$("cv-view").addEventListener("click",()=>{
+  const img=$("cv-img"); if(!img.src) img.src=CONTACT.cvPreview;
+  if(typeof dlg.showModal==="function") dlg.showModal(); else dlg.setAttribute("open","");
+});
+$("cv-close").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{ if(e.target===dlg) dlg.close(); });
+let dlApi; const dlReady=(window.claude&&window.claude.use)?window.claude.use("downloads").then(a=>dlApi=a).catch(()=>null):Promise.resolve(null);
+function flash(btn,key){ const k=btn.dataset.i18n; btn.textContent=DICT[lang][key]; setTimeout(()=>btn.innerHTML=DICT[lang][k],2000); }
+async function downloadCV(btn){
+  const name="CV_Wenceslao_Maldonado.pdf";
+  try{
+    await dlReady;
+    if(dlApi){
+      const blob=await fetch(CONTACT.cv).then(r=>{ if(!r.ok) throw new Error(r.status); return r.blob(); });
+      await dlApi.save({filename:name,data:blob});
+      flash(btn,"c.saved");
+    } else {
+      const a=document.createElement("a"); a.href=CONTACT.cv; a.download=name; document.body.appendChild(a); a.click(); a.remove();
+    }
+  }catch(err){
+    if(err&&err.code==="declined") flash(btn,"c.declined");
+    else if(err&&(err.code==="unavailable"||err.code==="not_granted")){ $("cv-view").click(); }
+    else flash(btn,"c.dlfail");
+  }
+}
+$("cv-dl").addEventListener("click",e=>downloadCV(e.currentTarget));
+$("cv-dl2").addEventListener("click",e=>downloadCV(e.currentTarget));
+
+/* ----- language ----- */
+function setLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const v=DICT[l][el.dataset.i18n]; if(v!=null) el.innerHTML=v; });
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.lang===l)));
+  try{ localStorage.setItem("wm-lang",l); }catch(_){}
+  lastSector=null; tick();
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+let saved=null; try{ saved=localStorage.getItem("wm-lang"); }catch(_){}
+const startLang = saved || ((navigator.language||"es").toLowerCase().startsWith("en") ? "en" : "es");
+
+/* ----- rocket scrollbar ----- */
+const rail=$("rail"), rocket=$("rocket"), trail=$("trail"), mini=$("mini-rocket");
+let lastScroll=scrollY, thrustTimer=0;
+function rocketUpdate(p){
+  $("mini-rocket").style.left=(p*100)+"%";
+  if(!rail.clientHeight) return;
+  const room=rail.clientHeight-rocket.offsetHeight, y=p*room;
+  rocket.style.setProperty("--y",y+"px");
+  trail.style.height=Math.max(0,y+4)+"px";
+  const dy=scrollY-lastScroll; lastScroll=scrollY;
+  if(dy<-1) rocket.classList.add("up"); else if(dy>1) rocket.classList.remove("up");
+  const thrust=Math.min(1.5,.45+Math.abs(dy)/30);
+  rocket.style.setProperty("--thrust",thrust.toFixed(2)); mini.style.setProperty("--thrust",thrust.toFixed(2));
+  clearTimeout(thrustTimer);
+  thrustTimer=setTimeout(()=>{ rocket.style.setProperty("--thrust",".45"); mini.style.setProperty("--thrust",".45"); },160);
+}
+(function(){
+  const maxScroll=()=>Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const toScroll=(clientY,offset)=>{
+    const r=rail.getBoundingClientRect(), room=r.height-rocket.offsetHeight;
+    const p=Math.min(1,Math.max(0,(clientY-r.top-offset)/room));
+    return p*maxScroll();
+  };
+  let dragOff=null;
+  rocket.addEventListener("pointerdown",e=>{
+    e.preventDefault(); e.stopPropagation();
+    dragOff=e.clientY-rocket.getBoundingClientRect().top;
+    rocket.setPointerCapture(e.pointerId);
+  });
+  rocket.addEventListener("pointermove",e=>{ if(dragOff===null) return; window.scrollTo({top:toScroll(e.clientY,dragOff),behavior:"instant"}); });
+  const end=()=>{ dragOff=null; };
+  rocket.addEventListener("pointerup",end); rocket.addEventListener("pointercancel",end);
+  rail.addEventListener("pointerdown",e=>{ if(e.target.closest(".rocket")) return; window.scrollTo({top:toScroll(e.clientY,rocket.offsetHeight/2),behavior:reduce?"instant":"smooth"}); });
+})();
+
+/* ----- scroll telemetry + planet parallax ----- */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const sectors=[...document.querySelectorAll("[data-sector]")];
+const orbits=[...document.querySelectorAll(".orbit")];
+let lastSector=null;
+function tick(){
+  const vh=innerHeight, max=Math.max(1,document.documentElement.scrollHeight-vh);
+  const p=Math.min(1,Math.max(0,scrollY/max));
+  $("dist").textContent=(p*5.2).toFixed(2);
+  $("bar").style.width=(p*100)+"%";
+  rocketUpdate(p);
+  let cur=sectors[0];
+  for(const s of sectors){ const r=s.getBoundingClientRect(); if(r.top<=vh*.5) cur=s; }
+  const key=cur.dataset.sector;
+  if(key!==lastSector){ $("sector").textContent="▸ "+SECTORS[lang][key]; lastSector=key; }
+  if(!reduce){
+    for(const o of orbits){
+      const r=o.getBoundingClientRect();
+      const d=Math.max(-1.2,Math.min(1.2,(r.top+r.height/2-vh/2)/vh));
+      o.style.setProperty("--d",d.toFixed(3)); o.style.setProperty("--ad",Math.min(1,Math.abs(d)).toFixed(3));
+    }
+  }
+}
+setLang(startLang);
+addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true});
+addEventListener("resize",tick);
+
+/* ----- starfield ----- */
+(function(){
+  const c=$("sky"), ctx=c.getContext("2d");
+  let W,H,dpr,stars=[];
+  const tints=["236,232,220","255,214,160","190,215,255"];
+  function build(){
+    dpr=Math.min(2,devicePixelRatio||1); W=innerWidth; H=innerHeight;
+    c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.min(700,Math.round(W*H/2200));
+    stars=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,
+      r:Math.random()*1.1+.25,ph:Math.random()*6.28,t:tints[Math.random()<.8?0:(Math.random()<.5?1:2)]}));
+  }
+  build(); addEventListener("resize",build);
+  let lastY=scrollY, vel=reduce?0:-38; // launch burst on load
+  function frame(time){
+    const dy=scrollY-lastY; lastY=scrollY;
+    vel+= (dy-vel)*.12;
+    ctx.clearRect(0,0,W,H);
+    for(const s of stars){
+      if(!reduce){ s.y-= dy*s.z*.45 + .04*s.z; s.y=((s.y%H)+H)%H; }
+      const a=reduce?.8:(.55+.45*Math.sin(time*.0015+s.ph));
+      const streak=Math.min(140,Math.abs(vel)*s.z*2.2);
+      if(streak>3){
+        ctx.strokeStyle=`rgba(${s.t},${.35+.5*s.z})`; ctx.lineWidth=s.r*1.2;
+        ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x,s.y+Math.sign(vel)*streak); ctx.stroke();
+      } else {
+        ctx.fillStyle=`rgba(${s.t},${a*(.4+.6*s.z)})`;
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r*(.6+s.z*.7),0,6.283); ctx.fill();
+      }
+    }
+    if(!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ----- realistic planets (WebGL, CSS planets stay as fallback) ----- */
+(function(){
+  const FRAG = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform vec2 uRes; uniform float uTime; uniform float uType; uniform float uR; uniform float uSeed;
+vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}
+vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}
+vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}
+vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}
+float snoise(vec3 v){
+  const vec2 C=vec2(1.0/6.0,1.0/3.0); const vec4 D=vec4(0.0,0.5,1.0,2.0);
+  vec3 i=floor(v+dot(v,C.yyy)); vec3 x0=v-i+dot(i,C.xxx);
+  vec3 g=step(x0.yzx,x0.xyz); vec3 l=1.0-g; vec3 i1=min(g.xyz,l.zxy); vec3 i2=max(g.xyz,l.zxy);
+  vec3 x1=x0-i1+C.xxx; vec3 x2=x0-i2+C.yyy; vec3 x3=x0-D.yyy;
+  i=mod289(i);
+  vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));
+  float n_=0.142857142857; vec3 ns=n_*D.wyz-D.xzx;
+  vec4 j=p-49.0*floor(p*ns.z*ns.z);
+  vec4 x_=floor(j*ns.z); vec4 y_=floor(j-7.0*x_);
+  vec4 x=x_*ns.x+ns.yyyy; vec4 y=y_*ns.x+ns.yyyy; vec4 h=1.0-abs(x)-abs(y);
+  vec4 b0=vec4(x.xy,y.xy); vec4 b1=vec4(x.zw,y.zw);
+  vec4 s0=floor(b0)*2.0+1.0; vec4 s1=floor(b1)*2.0+1.0; vec4 sh=-step(h,vec4(0.0));
+  vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy; vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
+  vec3 p0=vec3(a0.xy,h.x); vec3 p1=vec3(a0.zw,h.y); vec3 p2=vec3(a1.xy,h.z); vec3 p3=vec3(a1.zw,h.w);
+  vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));
+  p0*=norm.x; p1*=norm.y; p2*=norm.z; p3*=norm.w;
+  vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0); m=m*m;
+  return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
+}
+float fbm(vec3 p){float f=0.0,a=0.5;for(int i=0;i<6;i++){f+=a*snoise(p);p=p*2.03+vec3(1.7,9.2,3.1);a*=0.5;}return f;}
+float fbm3(vec3 p){float f=0.0,a=0.5;for(int i=0;i<3;i++){f+=a*snoise(p);p=p*2.1+vec3(4.1,2.3,7.7);a*=0.5;}return f;}
+vec3 rotY(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(c*p.x+s*p.z,p.y,-s*p.x+c*p.z);}
+vec3 rotZ(vec3 p,float a){float c=cos(a),s=sin(a);return vec3(c*p.x-s*p.y,s*p.x+c*p.y,p.z);}
+vec3 hash3(vec3 p){p=vec3(dot(p,vec3(127.1,311.7,74.7)),dot(p,vec3(269.5,183.3,246.1)),dot(p,vec3(113.5,271.9,124.6)));return fract(sin(p)*43758.5453);}
+// craters: returns x=depth(0..1 inside bowl), y=rim
+vec2 craters(vec3 p){
+  vec3 ip=floor(p); vec3 fp=fract(p); vec2 res=vec2(0.0);
+  for(int k=-1;k<=1;k++)for(int j=-1;j<=1;j++)for(int i=-1;i<=1;i++){
+    vec3 o=vec3(float(i),float(j),float(k)); vec3 h=hash3(ip+o);
+    if(h.z<0.45) continue;
+    float rr=0.18+0.3*h.x*h.x;
+    float d=length(o+h-fp)/rr;
+    res.x=max(res.x,smoothstep(1.0,0.55,d)*(0.6+0.4*h.y));
+    res.y=max(res.y,smoothstep(0.75,1.0,d)*smoothstep(1.35,1.0,d));
+  }
+  return res;
+}
+const vec3 L=vec3(-0.6179,0.3986,0.6777);
+
+// surface: albedo in rgb, a = ocean/spec mask ; emit = night lights ; cloud amount
+vec3 surface(vec3 sp,float t,out float spec,out vec3 emit,out float cloud,out vec3 atmo){
+  spec=0.0; emit=vec3(0.0); cloud=0.0; atmo=vec3(0.0);
+  float lat=sp.y;
+  if(uType<0.5){ // Puente Laboral: ocean world with continents and city lights
+    float h=fbm(sp*1.5+uSeed);
+    float det=fbm3(sp*7.0+2.0);
+    float land=smoothstep(0.035,0.065,h);
+    vec3 deep=vec3(0.02,0.09,0.20), shallow=vec3(0.05,0.33,0.42);
+    vec3 ocean=mix(deep,shallow,smoothstep(-0.30,0.04,h));
+    vec3 green=vec3(0.16,0.30,0.12), dry=vec3(0.55,0.45,0.27), peak=vec3(0.62,0.58,0.52);
+    float aridity=smoothstep(-0.2,0.5,fbm3(sp*2.3+9.0)+ (0.45-abs(lat))*0.6);
+    vec3 ground=mix(green,dry,aridity);
+    ground=mix(ground,peak,smoothstep(0.32,0.55,h+det*0.12));
+    ground*=0.85+0.3*det;
+    vec3 col=mix(ocean,ground,land);
+    float ice=smoothstep(0.80,0.88,abs(lat)+0.07*det);
+    col=mix(col,vec3(0.92,0.95,0.98),ice);
+    spec=(1.0-land)*(1.0-ice);
+    float lights=land*(1.0-ice)*smoothstep(0.35,0.75,snoise(sp*38.0)*0.5+snoise(sp*9.0)*0.6+0.2);
+    emit=vec3(1.0,0.72,0.38)*lights*1.4;
+    vec3 cp=rotY(sp,t*0.012);
+    float c=fbm(cp*2.4+vec3(0.0,0.0,t*0.006)+fbm3(cp*1.2)*0.8);
+    cloud=smoothstep(0.08,0.55,c)*0.9;
+    atmo=vec3(0.35,0.65,1.0);
+    return col;
+  } else if(uType<1.5){ // FIFA: banded gas giant with a storm
+    float w=fbm(sp*vec3(1.8,7.0,1.8)+uSeed)*0.5;
+    float b1=0.5+0.5*sin(lat*15.0+w*4.0);
+    float b2=0.5+0.5*sin(lat*41.0+w*7.0+1.3);
+    float b3=0.5+0.5*sin(lat*6.0-w*2.0);
+    vec3 cream=vec3(0.96,0.87,0.66), gold=vec3(0.86,0.60,0.22), brown=vec3(0.48,0.28,0.10), pale=vec3(0.93,0.78,0.50);
+    vec3 col=mix(brown,gold,b1); col=mix(col,cream,b2*0.55); col=mix(col,pale,b3*0.3);
+    vec3 c=normalize(vec3(0.55,-0.33,0.77));
+    vec3 dv=sp-c; float dd=length(dv*vec3(1.0,2.1,1.0));
+    float ang=atan(dv.y*2.1,dv.x)+dd*14.0;
+    float storm=smoothstep(0.24,0.10,dd);
+    vec3 sc=mix(vec3(0.70,0.30,0.12),vec3(0.92,0.62,0.38),0.5+0.5*sin(ang*3.0));
+    col=mix(col,sc,storm);
+    col*=0.9+0.2*fbm3(sp*vec3(3.0,22.0,3.0));
+    atmo=vec3(1.0,0.82,0.5);
+    return col;
+  } else if(uType<2.5){ // Tijerapp: rocky desert world with craters and canyons
+    float h=fbm(sp*2.0+uSeed);
+    vec3 dark=vec3(0.30,0.09,0.07), mid=vec3(0.72,0.30,0.20), light=vec3(0.90,0.60,0.44);
+    vec3 col=mix(dark,mid,smoothstep(-0.45,0.15,h)); col=mix(col,light,smoothstep(0.15,0.55,h));
+    float ridge=1.0-abs(snoise(sp*3.2+5.0)); ridge=pow(ridge,10.0);
+    col*=1.0-ridge*0.45;
+    vec2 cr=craters(sp*4.5); vec2 cr2=craters(sp*11.0+3.0);
+    col*=1.0-cr.x*0.35-cr2.x*0.22; col+=vec3(0.18,0.11,0.08)*(cr.y+cr2.y*0.6);
+    col*=0.88+0.24*fbm3(sp*16.0);
+    float ice=smoothstep(0.90,0.95,lat+0.05*fbm3(sp*8.0));
+    col=mix(col,vec3(0.95,0.90,0.88),ice);
+    atmo=vec3(1.0,0.55,0.38)*0.6;
+    return col;
+  } else { // Little Wild: jungle world, rivers and heavy humid clouds
+    float h=fbm(sp*1.7+uSeed);
+    float det=fbm3(sp*8.0);
+    float water=smoothstep(-0.30,-0.34,h);
+    vec3 deepG=vec3(0.04,0.17,0.06), midG=vec3(0.13,0.33,0.10), lightG=vec3(0.36,0.48,0.17);
+    vec3 col=mix(deepG,midG,smoothstep(-0.2,0.25,h+det*0.3));
+    col=mix(col,lightG,smoothstep(0.25,0.55,h+det*0.2)*0.7);
+    float river=smoothstep(0.035,0.0,abs(snoise(sp*4.5+11.0)))*(1.0-water);
+    vec3 wcol=vec3(0.03,0.16,0.18);
+    col=mix(col,wcol,max(water,river*0.85));
+    spec=max(water,river*0.6);
+    vec3 cp=rotY(sp,t*0.02);
+    vec3 q=cp*2.2+vec3(fbm3(cp*1.5),fbm3(cp*1.5+4.0),0.0)*1.1;
+    float c=fbm(q+vec3(t*0.01,0.0,0.0));
+    cloud=smoothstep(0.0,0.5,c)*0.85;
+    atmo=vec3(0.55,0.9,0.6);
+    return col;
+  }
+}
+
+void main(){
+  vec2 uv=(gl_FragCoord.xy*2.0-uRes)/uRes.y;
+  vec2 q=uv/uR; float r2=dot(q,q);
+  float t=uTime;
+  float tilt=uType>0.5&&uType<1.5?0.42:0.38;
+  vec3 col=vec3(0.0); float a=0.0;
+  // atmosphere glow
+  float atmoK=uType<0.5?1.0:(uType<1.5?0.55:(uType<2.5?0.5:0.9));
+  vec3 dummyE; float dummyS,dummyC; vec3 atmoCol;
+  // cheap atmo colour per type
+  atmoCol=uType<0.5?vec3(0.35,0.65,1.0):(uType<1.5?vec3(1.0,0.8,0.5):(uType<2.5?vec3(1.0,0.5,0.35):vec3(0.5,0.9,0.6)));
+  float rr=sqrt(r2);
+  if(rr>1.0){
+    float g=exp(-(rr-1.0)*(uType>0.5&&uType<1.5?18.0:11.0))*atmoK;
+    float lf=0.25+0.75*smoothstep(-0.7,0.6,dot(q/rr,normalize(L.xy)));
+    g*=lf*0.75;
+    col+=atmoCol*g; a+=g;
+  }
+  // ring plane (FIFA only)
+  bool hasRing=uType>0.5&&uType<1.5;
+  vec3 N=normalize(vec3(-0.30,1.0,0.26));
+  float ringZ=-(q.x*N.x+q.y*N.y)/N.z;
+  vec3 RP=vec3(q,ringZ); float rd=length(RP);
+  float ringDen=0.0;
+  if(hasRing && rd>1.32 && rd<2.25){
+    float s=smoothstep(1.32,1.40,rd)*smoothstep(2.25,2.15,rd);
+    float bands=0.55+0.25*sin(rd*70.0)+0.2*sin(rd*23.0+1.0);
+    float gap=smoothstep(0.015,0.045,abs(rd-1.86))*(0.4+0.6*smoothstep(0.01,0.03,abs(rd-2.05)));
+    ringDen=clamp(s*bands*gap,0.0,1.0)*0.9;
+  }
+  vec3 ringCol=vec3(0.0);
+  if(ringDen>0.0){
+    float b=dot(RP,L); float c=dot(RP,RP)-1.0; float disc=b*b-c;
+    float shadow=(disc>0.0&&-b>0.0)?0.12:1.0;
+    float lit=0.35+0.65*abs(dot(N,L));
+    ringCol=mix(vec3(0.62,0.50,0.34),vec3(0.95,0.86,0.68),0.5+0.5*sin(rd*31.0))*lit*shadow;
+  }
+  // ring behind the planet
+  if(ringDen>0.0 && (r2>=1.0 || ringZ<sqrt(max(0.0,1.0-r2)))){
+    if(r2>=1.0){ col=ringCol*ringDen+col*(1.0-ringDen); a=ringDen+a*(1.0-ringDen); }
+  }
+  if(r2<1.0){
+    vec3 n=vec3(q,sqrt(1.0-r2));
+    vec3 body=rotY(rotZ(n,tilt),t*(uType>0.5&&uType<1.5?0.09:0.05)+uSeed);
+    float spec; vec3 emit; float cloud; vec3 atmo;
+    vec3 alb=surface(body,t,spec,emit,cloud,atmo);
+    float ndl=dot(n,L);
+    float diff=smoothstep(-0.08,1.0,ndl);
+    // ring shadow on planet
+    if(hasRing){
+      float tt=-dot(n,N)/dot(L,N);
+      if(tt>0.0){ float hr=length(n+tt*L); if(hr>1.32&&hr<2.25) diff*=1.0-0.55*smoothstep(1.32,1.45,hr)*smoothstep(2.25,2.1,hr); }
+    }
+    vec3 c=alb*(0.03+1.05*diff);
+    float sp=pow(max(dot(reflect(-L,n),vec3(0.0,0.0,1.0)),0.0),40.0)*spec*(1.0-cloud);
+    c+=vec3(1.0,0.95,0.85)*sp*0.55;
+    float night=smoothstep(0.05,-0.2,ndl);
+    c+=emit*night*(1.0-cloud*0.85);
+    vec3 cl=vec3(1.0)*(0.04+1.0*smoothstep(-0.1,1.0,ndl));
+    c=mix(c,cl,cloud);
+    float fres=pow(1.0-n.z,2.6);
+    c+=atmoCol*fres*smoothstep(-0.25,0.7,ndl)*atmoK*0.85;
+    c*=0.9+0.1*n.z; // limb darkening
+    col=c; a=1.0;
+  }
+  // ring in front of the planet
+  if(ringDen>0.0 && r2<1.0 && ringZ>=sqrt(1.0-r2)){
+    col=ringCol*ringDen+col*(1.0-ringDen);
+  }
+  a=clamp(a,0.0,1.0);
+  gl_FragColor=vec4(min(col,vec3(a)),a);
+}`;
+  const VERT="attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}";
+  const TYPES={"p-puente":[0,0.62,1.3],"p-fifa":[1,0.40,4.2],"p-tijera":[2,0.60,2.7],"p-wild":[3,0.60,6.1]};
+  const items=[];
+  document.querySelectorAll(".orbit").forEach(o=>{
+    const el=o.querySelector(".planet"); if(!el) return;
+    const key=Object.keys(TYPES).find(k=>el.classList.contains(k)); if(!key) return;
+    const cv=document.createElement("canvas"); cv.className="planet-gl";
+    const gl=cv.getContext("webgl",{premultipliedAlpha:true,alpha:true,antialias:false});
+    if(!gl) return;
+    const sh=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(s));return null;}return s;};
+    const vs=sh(gl.VERTEX_SHADER,VERT), fs=sh(gl.FRAGMENT_SHADER,FRAG); if(!vs||!fs) return;
+    const pr=gl.createProgram(); gl.attachShader(pr,vs); gl.attachShader(pr,fs); gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){console.warn(gl.getProgramInfoLog(pr));return;}
+    gl.useProgram(pr);
+    const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    const loc=gl.getAttribLocation(pr,"p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    const [type,R,seed]=TYPES[key];
+    gl.uniform1f(gl.getUniformLocation(pr,"uType"),type);
+    gl.uniform1f(gl.getUniformLocation(pr,"uR"),R);
+    gl.uniform1f(gl.getUniformLocation(pr,"uSeed"),seed);
+    const it={o,cv,gl,uRes:gl.getUniformLocation(pr,"uRes"),uTime:gl.getUniformLocation(pr,"uTime"),visible:true,w:0};
+    o.querySelectorAll(".planet,.ring").forEach(n=>n.remove());
+    o.insertBefore(cv,o.querySelector(".scan"));
+    items.push(it);
+  });
+  if(!items.length) return;
+  function size(it){
+    const d=Math.min(1.5,devicePixelRatio||1), w=Math.round(it.cv.clientWidth*d);
+    if(w&&w!==it.w){ it.w=w; it.cv.width=it.cv.height=w; it.gl.viewport(0,0,w,w); it.gl.uniform2f(it.uRes,w,w); }
+  }
+  function draw(it,t){ size(it); it.gl.uniform1f(it.uTime,t); it.gl.drawArrays(it.gl.TRIANGLES,0,3); }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const it=items.find(i=>i.o===e.target); if(it) it.visible=e.isIntersecting;}),{rootMargin:"200px"});
+  items.forEach(it=>io.observe(it.o));
+  const t0=performance.now(); let last=0;
+  items.forEach(it=>draw(it,8.0));
+  if(reduce) return;
+  (function loop(now){
+    requestAnimationFrame(loop);
+    if(now-last<33) return; last=now;
+    const t=8.0+(now-t0)/1000;
+    items.forEach(it=>{ if(it.visible) draw(it,t); });
+  })(t0);
+})();
+</script>
+</body>
+</html>
